@@ -63,11 +63,11 @@ crossorigin="anonymous"></script>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="#">
+          <a class="nav-link text-white " href="viewstudents">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">table_view</i>
             </div>
-            <span class="nav-link-text ms-1">Tenants</span>
+            <span class="nav-link-text ms-1">All Students</span>
           </a>
         </li>
         <li class="nav-item">
@@ -201,8 +201,8 @@ crossorigin="anonymous"></script>
             </div>
             <div class="card-body px-0 pb-2">
               <div class="table-responsive">
-                <table class="table align-items-center mb-0">
-                  <thead class="table align-items-center mb-0 table-bordered table-hover table-striped text-white bg-gradient-primary">
+                <table class="table align-items-center mb-0 table-bordered table-hover table-striped ">
+                  <thead class="table align-items-center mb-0 text-white bg-gradient-primary">
                     <tr>
                       <th class="text-uppercase bg-gradient-primary ">Name</th>
                       <th class="text-uppercase bg-gradient-primary ">Email</th>
@@ -232,23 +232,21 @@ crossorigin="anonymous"></script>
                   <tbody>
                    {% for s in tech %}
                   <tr>
-                    <form action="updateteacher" method='post'>
-                    {% csrf_token %}
                     <input type="hidden" name="id" value='{{s.id}}'>
-                      <td><input class="bg-secondary text-white" type="text" name="name" value='{{s.name}}'></td>
-                      <td><input class="bg-secondary text-white" type="email" name="email" value='{{s.email}}'></td>
-                      <td><input class="bg-secondary text-white" type="number" name="contact"value='{{s.contact}}'></td>
-                      <td><input class="bg-secondary text-white" type="date" name="join" value='{{s.join}}'></td>
-                      <td><input class="bg-secondary text-white" type="text" name="education" value='{{s.education}}'></td>
-                      <td><input class="bg-secondary text-white" type="number" name="empid" value='{{s.empid}}'></td>
-                      <td><input class="bg-secondary text-white" type="text" name="exp" value='{{s.exp}}'></td>
-                      <td><input class="bg-secondary text-white" type="text" name="pack" value='{{s.pack}}'></td>
+                     <td>{{s.name}}</td>
+                     <td>{{s.email}}</td>
+                     <td>{{s.contact}}</td>
+                     <td>{{s.join}}</td>
+                     <td>{{s.education}}</td>
+                     <td>{{s.empid}}</td>
+                     <td>{{s.exp}}</td>
+                     <td>{{s.pack}}</td>
                       
                       
-                    <td><button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                    <td><a href="/up_teacher/{{s.id}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                           <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
                           <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                        </svg></button></td>
+                        </svg></a></td>
                   </form>
                     <td><a href="deleteteacher?id={{s.id}}"><span><svg xmlns="http://www.w3.org/2000/svg" width="16"
                                     height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">

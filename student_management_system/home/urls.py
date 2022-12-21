@@ -21,5 +21,8 @@ urlpatterns = [
     path('addteacher',views.addteacher),
     path('deleteteacher',views.deleteteacher),
     path('updateteacher',views.updateteacher),
-    path('searchteacher',views.searchteacher)
+    path('searchteacher',views.searchteacher),
+    path('up_course/<int:uid>/',views.up_course),
+    path('up_student/<int:uid>/',views.up_student),
+    path('up_teacher/<int:uid>/',views.up_teacher)
 ]

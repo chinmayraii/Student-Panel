@@ -199,4 +199,17 @@ def updateteacher(request):
 def searchteacher(request):
     find=request.POST['name']
     tech=Teacher.objects.filter(Q(name=find) | Q(email=find)).all()
-    return render(request,'temp/teacher.html',{'tech':tech})    
+    return render(request,'temp/teacher.html',{'tech':tech})
+
+def up_course(request,uid):
+    res=Course.objects.get(id=uid)
+    return render(request,'temp/update_course.html',{'i':res})
+
+def up_student(request,uid):
+    res=Student.objects.get(id=uid)
+    data=Course.objects.all()
+    return render(request,'temp/update_student.html',{'s':res,'data':data})
+
+def up_teacher(request,uid):
+    res=Teacher.objects.get(id=uid)
+    return render(request,'temp/update_teacher.html',{'s':res})    

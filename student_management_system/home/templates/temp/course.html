@@ -61,14 +61,14 @@ crossorigin="anonymous"></script>
             <span class="nav-link-text ms-1">Dashboard</span>
           </a>
         </li>
-        <!-- <li class="nav-item">
-          <a class="nav-link text-white " href="/tenants.html">
+        <li class="nav-item">
+          <a class="nav-link text-white " href="viewstudents">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">table_view</i>
             </div>
-            <span class="nav-link-text ms-1">Tenants</span>
+            <span class="nav-link-text ms-1">All Students</span>
           </a>
-        </li> -->
+        </li>
         <li class="nav-item">
           <a class="nav-link text-white " href="teacher">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -212,14 +212,14 @@ crossorigin="anonymous"></script>
 
             <div class="card-body px-0 pb-2">
               <div class="table-responsive">
-                <table class="table align-items-center mb-0 table-bordered table-striped table-hover">
+                <table class="table align-items-center mb-0 table-bordered table-hover">
                   <thead class="bg-gradient-primary text-white">
                     <tr>
                       <th class="text-uppercase ">Courses Name</th>
                       <th class="text-uppercase ">Fees</th>
                       <th class="text-center ">Duration</th>
                       <th class="text-center ">TextField</th>
-                      <th class="text-center "><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                      <th class="text-center text-uppercase"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                         <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
                         <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
                         </svg></th>
@@ -233,31 +233,21 @@ crossorigin="anonymous"></script>
                     </tr>
                   </thead>
                   <tbody>
-                  {% for i in data %}
-                  <form action="updatecourse" method='post'>
-                  {% csrf_token %}
+                   {% for i in data %}
                   <tr>
                   <td><input type="hidden" name='id' value='{{i.id}}'></td>
                   </tr>
                     <tr>
-                      <td class="align-middle text-sm">
-                        <input class="text-xs font-weight-bold text-center bg-secondary text-white" type="text" name='name' value='{{i.name}}'>
-                      </td>
-                      <td class="align-middle text-sm">
-                        <input class="text-xs font-weight-bold text-center bg-secondary text-white" type="number" name='fees' value='{{i.fees}}'>
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <input class="text-xs font-weight-bold text-center bg-secondary text-white" type="text" name='duration' value='{{i.duration}}'>
-                      </td>
-                      <td class="text-center text-sm">
-                        <input class="text-xs font-weight-bold text-center bg-secondary text-white" type="text" name='textfield' value='{{i.textfield}}'>
-                      </td>
+                     <td>{{i.name}}</td>
+                     <td>{{i.fees}}</td>
+                     <td>{{i.duration}}</td>
+                     <td>{{i.textfield}}</td>
                       
                       <td class="align-middle text-center text-sm">
-                          <button type='submit'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                          <a href="/up_course/{{i.id}}"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                           <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
                           <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                        </svg></button>                        
+                        </svg>  </a>                      
                       </td>
                       </form>
 
