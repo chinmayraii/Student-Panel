@@ -1,1 +1,1 @@
-# Student-_management_system
+# Student Panel
